@@ -8,7 +8,7 @@ const TYPE_ICONS: Record<string, IconName> = {
   feed: 'hunger-apple',
   release: 'trending-down',
   marathon: 'rocket',
-  marathon_bonus: 'star',
+  marathon_bonus: 'celebration',
   swap: 'swap'
 };
 

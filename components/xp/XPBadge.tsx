@@ -31,7 +31,7 @@ export function XPBadge({ size = 'md', showHarvestButton = false, onClick }: XPB
         ${sizeClasses[size]}
       `}
     >
-      <StockIcon name="star" size="sm" />
+      <StockIcon name="diamond" size="sm" />
       <span>{currentXP.toLocaleString()} XP</span>
       {showHarvestButton && currentXP >= 1000 && (
         <span className="text-green-500 dark:text-green-400 text-xs ml-1">🌾</span>
