@@ -9,9 +9,23 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@polymarket/clob-client": "^5.2.3",
+    "@reown/appkit": "^1.8.18",
+    "@reown/appkit-adapter-wagmi": "^1.8.18",
+    "@tanstack/react-query": "^5.90.21",
+    "@wagmi/connectors": "^7.2.1",
+    "@wagmi/core": "^3.4.0",
+    "@walletconnect/modal": "^2.7.0",
+    "clsx": "^2.1.1",
+    "color-thief-browser": "^2.0.2",
+    "framer-motion": "^12.34.2",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "recharts": "^3.7.0",
+    "tailwind-merge": "^3.4.1",
+    "viem": "^2.46.2",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
