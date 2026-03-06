@@ -113,7 +113,7 @@ export function FeedModal({ sigil, isOpen, onClose, onConfirm }: FeedModalProps)
       // Award XP for feeding (buying)
       // Calculate percent change: positive if stock is up, negative if down
       const percentChange = ((position.currPrice - position.avgPrice) / position.avgPrice) * 100;
-      const xpTransaction = awardFeedXP(numAmount, position.ticker || position.slug, percentChange);
+      const xpTransaction = awardFeedXP(numAmount, position.slug, percentChange);
       if (xpTransaction) {
         setXpToast(xpTransaction);
       }

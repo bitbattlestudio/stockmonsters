@@ -115,7 +115,7 @@ export function ReleaseModal({ sigil, isOpen, onClose, onConfirm }: ReleaseModal
         const dollarAmount = estimatedValue;
         const gainPercent = ((position.currPrice - position.avgPrice) / position.avgPrice) * 100;
         const isFullSale = sharesToSell >= maxShares * 0.99; // Consider 99%+ as full sale
-        const xpTransaction = awardReleaseXP(dollarAmount, position.ticker || position.slug, gainPercent, isFullSale);
+        const xpTransaction = awardReleaseXP(dollarAmount, position.slug, gainPercent, isFullSale);
         if (xpTransaction) {
           setXpToast(xpTransaction);
         }
