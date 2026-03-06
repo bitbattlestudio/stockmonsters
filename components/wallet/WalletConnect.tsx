@@ -83,7 +83,7 @@ export function WalletConnect({ onConnect, variant = 'button' }: WalletConnectPr
   // Full variant - shows connectors inline
   return (
     <div className="space-y-3">
-      <p className="text-sm font-bold text-text-dark mb-2">Connect your wallet</p>
+      <p className="text-sm font-bold text-text-dark dark:text-white mb-2">Connect your wallet</p>
       {connectors.map((connector) => {
         const info = getConnectorInfo(connector.id);
         return (
@@ -91,12 +91,12 @@ export function WalletConnect({ onConnect, variant = 'button' }: WalletConnectPr
             key={connector.id}
             onClick={() => handleConnect(connector)}
             disabled={isConnecting}
-            className="w-full p-4 bg-panel-bg border-3 border-panel-border rounded-xl flex items-center gap-3 hover:bg-panel-border/10 transition-colors disabled:opacity-50"
+            className="w-full p-4 bg-panel-bg dark:bg-gray-800 border-3 border-panel-border dark:border-gray-600 rounded-xl flex items-center gap-3 hover:bg-panel-border/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
           >
             <span className="text-2xl">{info.icon}</span>
-            <span className="font-bold text-text-dark">{info.name}</span>
+            <span className="font-bold text-text-dark dark:text-white">{info.name}</span>
             {isConnecting && (
-              <span className="ml-auto text-sm text-text-mid">Connecting...</span>
+              <span className="ml-auto text-sm text-text-mid dark:text-gray-400">Connecting...</span>
             )}
           </button>
         );
@@ -131,14 +131,14 @@ function ConnectorModal({
       />
 
       {/* Modal */}
-      <Panel className="relative z-10 w-full max-w-sm p-6">
+      <Panel className="relative z-10 w-full max-w-sm p-6 dark:bg-gray-800 dark:border-gray-600">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-text-dark">Connect Wallet</h2>
+          <h2 className="text-xl font-bold text-text-dark dark:text-white">Connect Wallet</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-panel-border/10 rounded-lg transition-colors"
+            className="p-2 hover:bg-panel-border/10 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
-            <svg className="w-5 h-5 text-text-mid" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 text-text-mid dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -152,10 +152,10 @@ function ConnectorModal({
                 key={connector.id}
                 onClick={() => onSelect(connector)}
                 disabled={isConnecting}
-                className="w-full p-4 bg-white border-2 border-panel-border rounded-xl flex items-center gap-3 hover:bg-panel-border/10 transition-colors disabled:opacity-50"
+                className="w-full p-4 bg-panel-bg dark:bg-gray-800 border-2 border-panel-border dark:border-gray-600 rounded-xl flex items-center gap-3 hover:bg-panel-border/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
                 <span className="text-2xl">{info.icon}</span>
-                <span className="font-bold text-text-dark">{info.name}</span>
+                <span className="font-bold text-text-dark dark:text-white">{info.name}</span>
               </button>
             );
           })}
@@ -165,7 +165,7 @@ function ConnectorModal({
           <p className="text-sm text-hp-red mt-4 text-center">{error.message}</p>
         )}
 
-        <p className="text-xs text-text-mid text-center mt-4">
+        <p className="text-xs text-text-mid dark:text-gray-400 text-center mt-4">
           By connecting, you agree to the Terms of Service
         </p>
       </Panel>

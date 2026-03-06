@@ -77,15 +77,15 @@ export default function Home() {
           src="/logo.png"
           width={96}
           height={96}
-          alt="AssetMonsters logo"
+          alt="StockMonsters logo"
           className="mx-auto mb-4 rounded-2xl shadow-lg"
           style={{ imageRendering: 'pixelated' }}
         />
         <h1 className="text-4xl font-bold mb-2" style={{ color: '#6858A8' }}>
-          AssetMonsters
+          StockMonsters
         </h1>
         <p className="text-lg text-text-secondary">
-          Your assets, alive
+          Your stocks, alive
         </p>
       </motion.div>
 

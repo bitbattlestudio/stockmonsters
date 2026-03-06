@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useWalletStore } from '@/stores';
 import { truncateAddress } from '@/lib/utils/format';
+import { WalletConnect } from '@/components/wallet';
 
 interface HeaderProps {
   showBack?: boolean;
@@ -13,6 +15,7 @@ interface HeaderProps {
 
 export function Header({ showBack, backHref = '/', title }: HeaderProps) {
   const { address, isConnected } = useWalletStore();
+  const [showWalletModal, setShowWalletModal] = useState(false);
 
   return (
     <header className="mx-3 mt-3 px-4 py-3 bg-panel-bg border-3 border-panel-border rounded-2xl shadow-panel flex items-center justify-between">
@@ -31,13 +34,13 @@ export function Header({ showBack, backHref = '/', title }: HeaderProps) {
               src="/logo.png"
               width={48}
               height={48}
-              alt="AssetMonsters logo"
+              alt="StockMonsters logo"
               className="rounded-xl"
               style={{ imageRendering: 'pixelated' }}
             />
             <div>
               <span className="text-xl font-bold block" style={{ color: '#6858A8' }}>
-                AssetMonsters
+                StockMonsters
               </span>
               <span className="text-xs text-text-mid">
                 {address ? truncateAddress(address) : 'My Collection'}
@@ -48,16 +51,29 @@ export function Header({ showBack, backHref = '/', title }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-2">
-        {isConnected && (
-          <div className="px-2 py-1 rounded-lg bg-hp-green/20 text-hp-green text-xs font-bold">
-            Connected
-          </div>
-        )}
+        {/* Wallet button */}
+        <button
+          onClick={() => setShowWalletModal(true)}
+          className="px-3 py-1.5 rounded-full text-sm font-bold bg-panel-border text-white hover:bg-panel-border/80 transition-colors"
+        >
+          {isConnected ? truncateAddress(address || '') : 'Connect'}
+        </button>
+
         <div className="px-3 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 bg-hp-green text-white">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           LIVE
         </div>
       </div>
+
+      {/* Wallet Modal */}
+      {showWalletModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowWalletModal(false)}>
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div onClick={(e) => e.stopPropagation()} className="relative z-10">
+            <WalletConnect variant="button" onConnect={() => setShowWalletModal(false)} />
+          </div>
+        </div>
+      )}
     </header>
   );
 }
