@@ -368,9 +368,6 @@ function CollectionContent() {
       {/* 2-Column Habitat Grid */}
       <div className="px-4">
         <div className="grid grid-cols-2 gap-3">
-          {/* Connect Wallet Card (if not connected) */}
-          {!isConnected && <ConnectWalletCard />}
-
           {/* Stock Cards with Trade Offer inserted after position 1 */}
           {displayStocks.map((stock, index) => {
             // Handle both DemoStock and StockPosition types
