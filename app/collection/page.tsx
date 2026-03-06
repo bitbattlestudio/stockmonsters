@@ -182,7 +182,7 @@ function CollectionContent() {
   const [selectedOffer, setSelectedOffer] = useState<TradeOffer | null>(null);
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const [isHarvestModalOpen, setIsHarvestModalOpen] = useState(false);
-  const spriteStyle: SpriteStyle = 'auto'; // Fixed to auto
+  const spriteStyle = 'auto' as SpriteStyle; // Fixed to auto
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Initialize dark mode from localStorage
