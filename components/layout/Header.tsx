@@ -54,9 +54,9 @@ export function Header({ showBack, backHref = '/', title }: HeaderProps) {
         {/* Wallet button */}
         <button
           onClick={() => setShowWalletModal(true)}
-          className="px-3 py-1.5 rounded-full text-sm font-bold bg-panel-border text-white hover:bg-panel-border/80 transition-colors"
+          className="px-3 py-1.5 rounded-full text-sm font-bold bg-purple-600 dark:bg-panel-border text-white hover:bg-purple-700 dark:hover:bg-panel-border/80 transition-colors"
         >
-          {isConnected ? truncateAddress(address || '') : 'Connect'}
+          {isConnected ? truncateAddress(address || '') : 'Connect Wallet'}
         </button>
 
         <div className="px-3 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 bg-hp-green text-white">
